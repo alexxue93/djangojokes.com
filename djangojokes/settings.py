@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'common.apps.CommonConfig',
     'jokes.apps.JokesConfig',
     'pages.apps.PagesConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -91,7 +92,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '63840',
         'HOST': 'localhost',
-        'PORT': 5432
+        'PORT': 5433
     }
 }
 
@@ -113,6 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# AUTHENTICATION SETTINGS
+AUTH_USER_MODEL = 'users.CustomUser'
 
 
 # Internationalization
