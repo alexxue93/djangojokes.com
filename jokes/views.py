@@ -20,6 +20,9 @@ class JokeCreateView(CreateView):
     model = Joke
     #fields = ['question', 'answer']
     form_class = JokeForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class JokeUpdateView(UpdateView):
     model = Joke
