@@ -37,7 +37,7 @@ class JobApplicationForm(forms.ModelForm):
         fields = (
             'first_name', 'last_name', 'email', 'website', 'employment_type',
             'start_date', 'available_days', 'desired_hourly_wage',
-            'cover_letter', 'confirmation', 'job')
+            'cover_letter', 'resume', 'confirmation', 'job')
         widgets = {
             'first_name': forms.TextInput(attrs={'autofocus': True}),
             'website': forms.TextInput(

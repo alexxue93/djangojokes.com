@@ -1,4 +1,4 @@
-""" import filetype """
+import filetype
 from datetime import datetime
 """ from djangojokes.storage_backends import PrivateMediaStorage """
 
@@ -11,6 +11,11 @@ def validate_future_date(value):
         raise ValidationError(
             message=f'{value} is in the past.', code='past_date'
         )
+        
+def validate_pdf(value):
+    kind = filetype.guess(value)
+    if not kind or kind.mime != 'application/pdf':
+        raise ValidationError("That’s not a PDF file.")
 
 class Job(models.Model):
     title = models.CharField(max_length=200)
@@ -45,6 +50,7 @@ class Applicant(models.Model):
     cover_letter = models.TextField()
     resume = models.FileField(
         upload_to='resumes', blank=True, help_text='PDFs only',
+        validators=[validate_pdf]
     )
     confirmation = models.BooleanField()
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
