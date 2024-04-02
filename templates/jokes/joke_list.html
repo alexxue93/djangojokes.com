@@ -97,7 +97,7 @@
           {% with votes=joke.votes %}
           <div id="rating-container" title="{{ votes.rating }}">
             <div id="rating" 
-              style="width:{% widthratio joke.rating 10 100 %}%;"></div>
+              style="width:{% widthratio votes.rating 10 100 %}%;"></div>
           </div>
           ({{ votes.num_votes }} vote{{ votes.num_votes|pluralize }})
           {% endwith %}

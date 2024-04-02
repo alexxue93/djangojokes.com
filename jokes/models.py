@@ -51,7 +51,7 @@ class Joke(models.Model):
             sum_votes=Sum('vote')
         )
 
-        # If there aren't any votes yet, return a dictionary with values of 0.
+        # If there aren’t any votes yet, return a dictionary with values of 0.
         if result['num_votes'] == 0:
             return {'num_votes': 0, 'rating': 0, 'likes': 0, 'dislikes': 0}
 

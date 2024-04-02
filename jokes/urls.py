@@ -15,3 +15,4 @@ urlpatterns = [
     path('tag/<slug>/', JokeListView.as_view(), name='tag'),
     path('creator/<username>/', JokeListView.as_view(), name='creator'),
     ]
+
